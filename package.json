@@ -1,0 +1,22 @@
+{
+  "name": "playwright_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HabriielianDaria/Playwright_JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HabriielianDaria/Playwright_JS/issues"
+  },
+  "homepage": "https://github.com/HabriielianDaria/Playwright_JS#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
