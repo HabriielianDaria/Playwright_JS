@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { SignupPage } from '../pages/SignupPage';
-import { generateUser } from '../utils/userFactory';
+import { SignupPage } from '../src/pages/SignupPage';
+import { generateUser } from '../src/utils/userFactory';
 
 test.describe('Registration form (POM)', () => {
 

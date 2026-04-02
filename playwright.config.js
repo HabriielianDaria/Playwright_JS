@@ -11,25 +11,33 @@ export default defineConfig({
 
   reporter: 'html',
 
- use: {
-  headless: true,
-  viewport: { width: 1280, height: 720 },
-  ignoreHTTPSErrors: true,
-},
+  use: {
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
+    baseURL: 'https://qauto.forstudy.space/',
+    httpCredentials: {
+      username: 'guest',
+      password: 'welcome2qauto',
+    },
+  },
 
   projects: [
     {
-      name: 'qauto-chromium',
+      name: 'qauto',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'https://qauto.forstudy.space/',
       },
     },
     {
-      name: 'qauto2-chromium',
+      name: 'qauto2',
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'https://qauto2.forstudy.space/',
+        httpCredentials: {
+          username: 'guest',
+          password: 'welcome2qauto',
+        },
       },
     },
   ],
