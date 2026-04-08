@@ -1,5 +1,14 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+// визначаємо середовище
+const envName = process.env.TEST_ENV || 'qauto';
+
+// підтягуємо відповідний .env файл
+dotenv.config({
+  path: `.env.${envName}`,
+});
 
 export default defineConfig({
   testDir: './tests',
@@ -15,10 +24,12 @@ export default defineConfig({
     headless: true,
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
-    baseURL: 'https://qauto.forstudy.space/',
+
+    baseURL: process.env.BASE_URL,
+
     httpCredentials: {
-      username: 'guest',
-      password: 'welcome2qauto',
+      username: process.env.HTTP_USERNAME,
+      password: process.env.HTTP_PASSWORD,
     },
   },
 
@@ -33,11 +44,6 @@ export default defineConfig({
       name: 'qauto2',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'https://qauto2.forstudy.space/',
-        httpCredentials: {
-          username: 'guest',
-          password: 'welcome2qauto',
-        },
       },
     },
   ],
