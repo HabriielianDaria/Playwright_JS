@@ -1,89 +1,81 @@
 import { test, expect } from '@playwright/test';
+import { SignupPage } from '../src/pages/SignupPage';
+import { generateUser } from '../src/utils/userFactory';
 
-function generateEmail() {
-  return `aqa-${Date.now()}@test.com`;
-}
-
-async function openSignup(page) {
-  await page.goto('https://qauto.forstudy.space/');
-  await page.getByRole('button', { name: 'Sign up' }).click();
-}
-
-test.describe('Registration form', () => {
+test.describe('Registration form (POM)', () => {
 
   test('Successful registration', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
+    const user = generateUser();
 
-    const email = generateEmail();
-
-    await page.locator('#signupName').fill('Daria');
-    await page.locator('#signupLastName').fill('Habriielian');
-    await page.locator('#signupEmail').fill(email);
-    await page.locator('#signupPassword').fill('Password1');
-    await page.locator('#signupRepeatPassword').fill('Password1');
-
-    await page.getByRole('button', { name: 'Register' }).click();
+    await signupPage.open();
+    await signupPage.register(user);
 
     await expect(page).toHaveURL(/garage/);
   });
 
   test('Empty Name', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
 
-    const nameInput = page.locator('#signupName');
+    await signupPage.open();
 
-    await nameInput.click(); 
-    await nameInput.blur(); 
+    await signupPage.nameInput.click();
+    await signupPage.nameInput.blur();
 
-    await expect(nameInput).toHaveClass(/ng-invalid/);
-});
+    await expect(signupPage.nameInput).toHaveClass(/ng-invalid/);
+  });
 
   test('Empty Last Name', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
 
-    const nameInput = page.locator('#signupLastName');
+    await signupPage.open();
 
-    await nameInput.click(); 
-    await nameInput.blur(); 
+    await signupPage.lastNameInput.click();
+    await signupPage.lastNameInput.blur();
 
-    await expect(nameInput).toHaveClass(/ng-invalid/);
-});
+    await expect(signupPage.lastNameInput).toHaveClass(/ng-invalid/);
+  });
 
   test('Invalid email', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
 
-    await page.locator('#signupEmail').fill('test@');
-    await page.locator('#signupEmail').blur();
+    await signupPage.open();
 
-    await expect(page.locator('#signupEmail')).toHaveClass(/ng-invalid/);
+    await signupPage.emailInput.fill('test@');
+    await signupPage.emailInput.blur();
+
+    await expect(signupPage.emailInput).toHaveClass(/ng-invalid/);
   });
 
   test('Password too short', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
 
-    await page.locator('#signupPassword').fill('Pass1');
-    await page.locator('#signupPassword').blur();
+    await signupPage.open();
 
-    await expect(page.locator('#signupPassword')).toHaveClass(/ng-invalid/);
+    await signupPage.passwordInput.fill('Pass1');
+    await signupPage.passwordInput.blur();
+
+    await expect(signupPage.passwordInput).toHaveClass(/ng-invalid/);
   });
 
   test('Passwords do not match', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
 
-    await page.locator('#signupPassword').fill('Password1');
-    await page.locator('#signupRepeatPassword').fill('Password2');
+    await signupPage.open();
 
-    await page.locator('#signupRepeatPassword').blur();
+    await signupPage.passwordInput.fill('Password1');
+    await signupPage.repeatPasswordInput.fill('Password2');
+    await signupPage.repeatPasswordInput.blur();
 
-    await expect(page.locator('#signupRepeatPassword')).toHaveClass(/is-invalid/);
+    await expect(signupPage.repeatPasswordInput).toHaveClass(/is-invalid/);
   });
 
   test('Register button disabled', async ({ page }) => {
-    await openSignup(page);
+    const signupPage = new SignupPage(page);
 
-    const btn = page.getByRole('button', { name: 'Register' });
+    await signupPage.open();
 
-    await expect(btn).toBeDisabled();
+    await expect(signupPage.registerBtn).toBeDisabled();
   });
 
 });
