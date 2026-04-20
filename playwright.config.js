@@ -1,11 +1,8 @@
-// @ts-check
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
-// визначаємо середовище
 const envName = process.env.TEST_ENV || 'qauto';
 
-// підтягуємо відповідний .env файл
 dotenv.config({
   path: `.env.${envName}`,
 });
@@ -35,21 +32,27 @@ export default defineConfig({
 
   projects: [
     {
+      name: 'setup',
+      testMatch: /setup\.js/,
+    },
+    {
       name: 'qauto',
       use: {
         ...devices['Desktop Chrome'],
+        storageState: 'storageState.json',
       },
+      dependencies: ['setup'],
     },
     {
       name: 'qauto2',
       use: {
         ...devices['Desktop Chrome'],
+        storageState: 'storageState.json',
       },
+      dependencies: ['setup'],
     },
   ],
 });
-   
-
 
 
 
