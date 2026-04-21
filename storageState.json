@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "YSC",
-      "value": "ArSgKRGmOA8",
+      "value": "7uZVXDwycd0",
       "domain": ".youtube.com",
       "path": "/",
       "expires": -1,
@@ -11,11 +11,31 @@
       "sameSite": "None"
     },
     {
-      "name": "__Secure-ROLLOUT_TOKEN",
-      "value": "CKue7caM26aPEhCnhqXM7_yTAxinhqXM7_yTAw%3D%3D",
+      "name": "VISITOR_INFO1_LIVE",
+      "value": "vZnUnv3pxKY",
       "domain": ".youtube.com",
       "path": "/",
-      "expires": 1792255307.810022,
+      "expires": 1792357632.978894,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "VISITOR_PRIVACY_METADATA",
+      "value": "CgJVQRIEGgAgRg%3D%3D",
+      "domain": ".youtube.com",
+      "path": "/",
+      "expires": 1792357632.978931,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "__Secure-ROLLOUT_TOKEN",
+      "value": "CO-ghf7C0eikpwEQ2K7S5Oz_kwMY2K7S5Oz_kwM%3D",
+      "domain": ".youtube.com",
+      "path": "/",
+      "expires": 1792357632.979008,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None",
@@ -23,31 +43,11 @@
       "_crHasCrossSiteAncestor": true
     },
     {
-      "name": "VISITOR_INFO1_LIVE",
-      "value": "dImBHD2GLQc",
-      "domain": ".youtube.com",
-      "path": "/",
-      "expires": 1792255307.810224,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "VISITOR_PRIVACY_METADATA",
-      "value": "CgJVQRIEGgAgIA%3D%3D",
-      "domain": ".youtube.com",
-      "path": "/",
-      "expires": 1792255307.810272,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
       "name": "sid",
-      "value": "s%3AZh7_ns5xJEB-3FA9eBpBAtKQ1aoUYfQp.9aADSj3YOBgKJU15DAMJHqQHZSvolAshdnXswP6cdJA",
+      "value": "s%3AdvPT0-KLuzW9rWQ4t74xuXdOHIfC0rh2.SvoBZul2DxxzmHsXVfz0gg0Hh2xXOeRL0qgFEQxTyYQ",
       "domain": ".forstudy.space",
       "path": "/",
-      "expires": 1776789710.967978,
+      "expires": 1776892035.660946,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -59,11 +59,11 @@
       "localStorage": [
         {
           "name": "ytidb::LAST_RESULT_ENTRY_KEY",
-          "value": "{\"data\":{\"hasSucceededOnce\":true},\"expiration\":1779295309194,\"creation\":1776703309194}"
+          "value": "{\"data\":{\"hasSucceededOnce\":true},\"expiration\":1779397633883,\"creation\":1776805633883}"
         },
         {
           "name": "yt-icons-last-purged",
-          "value": "1769276509363"
+          "value": "1771020434034"
         }
       ]
     }

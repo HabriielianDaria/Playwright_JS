@@ -39,7 +39,6 @@ export default defineConfig({
       name: 'qauto',
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'storageState.json',
       },
       dependencies: ['setup'],
     },
@@ -47,7 +46,6 @@ export default defineConfig({
       name: 'qauto2',
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'storageState.json',
       },
       dependencies: ['setup'],
     },
